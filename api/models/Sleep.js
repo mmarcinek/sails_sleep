@@ -8,7 +8,8 @@
 module.exports = {
 
   attributes: {
-
+    hours_slept: 'INTEGER',
+    sleep_quality: 'STRING'
   }
 };
 
