@@ -21,4 +21,14 @@ module.exports = {
   //   connection: 'someMongodbServer'
   // }
 
+  config: {
+    database: 'mySleep',
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    port: 5432,
+    pool: false,
+    ssl: false
+  }
+
 };
