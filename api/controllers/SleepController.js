@@ -107,5 +107,27 @@ module.exports = {
     });
   }
 
+  destroy: function (req, res, next) {
+
+    var id = req.param('id');
+
+    if (!id) {
+      return res.badRequest('No id provided.');
+    }
+
+    Sleep.findOne(id).done(functin(err, result) {
+      if (err) return res.serverError(err);
+
+      if (!result) return res.notFound();
+
+      Sleep.destroy(id, function (err) {
+
+        if (err) return next (err);
+
+        return res.json(result);
+      });
+
+     });
+  }
 };
 

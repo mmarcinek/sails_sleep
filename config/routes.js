@@ -36,6 +36,10 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'post /sleep': 'SleepController.create'
+  'get /sleep/:id?': 'SleepController.find',
+  'post /sleep': 'SleepController.create',
+  'put /sleep/:id?': 'SleepController.update',
+  'delete /sleep/:id?': 'SleepController.destroy'
+
 
 };
