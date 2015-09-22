@@ -82,6 +82,29 @@ module.exports = {
 
     }
 
+  },
+
+  // UPDATE action
+  update: function (req, res, next) {
+
+    var criteria = {};
+
+    criteria = _.merge({}, req.params.all(), req.body);
+
+    var id = req.param('id');
+
+    if (!id) {
+      return res.badRequest('No is provided.');
+    }
+
+    Sleep.update(id, criteria, function (err, sleep) {
+
+      if(sleep.length === 0) return res.notFound();
+
+      if(err) return next(err);
+
+      res.json(sleep);
+    });
   }
 
 };
