@@ -115,7 +115,7 @@ module.exports = {
       return res.badRequest('No id provided.');
     }
 
-    Sleep.findOne(id).done(functin(err, result) {
+    Sleep.findOne(id).done( function (err, result) {
       if (err) return res.serverError(err);
 
       if (!result) return res.notFound();
